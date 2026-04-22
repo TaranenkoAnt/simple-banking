@@ -1,0 +1,31 @@
+[versions]
+# освновные версии
+spring-boot = "3.2.5"
+spring-cloud = "2023.0.2"
+postgresql = "42.7.3"
+testcontainers = "1.19.8"
+lombok = "1.16.32"
+mapstruct = "1.5.5.Final"
+
+[libraries]
+# Spring boot стартеры
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-statrter-web" }
+spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-jpa" }
+spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation" }
+spring-boot-starter-actuator = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test" }
+
+# драйвер базы
+postgresql = { module = "org.postresql:postgresql", version.ref = "postgresql" }
+
+# TestContainers
+testcontainers-bom = { module = "org,testcontainers:postgresql" }
+testcontainers-junit-jupiter = { module = "org.testcontainers:junit-jupiter" }
+
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
+mapstruct-processor = { module = "org.mapstruct:mapstruct-processor", version.ref = "mapstruct" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version = "1.1.5" }
