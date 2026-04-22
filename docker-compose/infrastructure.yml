@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+   postgres-account:
+     image: postgres:16-alpine
+     container_name: banking-postgres-account
+     environment:
+       POSTGRES_DB: account_db
+       POSTGRES_USER: banking_user
+       POSTGRES_PASSWORD: banking_pass
+     ports:
+       - "5432:5432"
+     volumes:
+       - postgres-account-data:/var/lib/postgresql/data
+
+volumes:
+   postgres-account-data:

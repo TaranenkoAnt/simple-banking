@@ -1,6 +1,18 @@
 spring:
   application:
     name: account-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/account_db
+    username: banking_user
+    password: banking_pass
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+      show-sql: true
 
 server:
   port: 8081
