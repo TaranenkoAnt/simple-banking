@@ -18,11 +18,13 @@ dependencies {
 
     testImplementation(libs.spring.boot.starter.test)
     testImplementation(libs.testcontainersPostgresql)
-    // testImplementation(libs.testcontainersJunitJupiter) не работает
     testImplementation(libs.testcontainers.junit.jupiter) // работает нормально
 
     implementation(libs.mapstruct)
     annotationProcessor(libs.mapstruct.processor)
+
+    implementation(libs.flyway.core)
+    runtimeOnly(libs.flyway.database.postgresql)
 }
 
 tasks.withType<Test> {
