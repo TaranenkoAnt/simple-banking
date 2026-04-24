@@ -82,6 +82,13 @@ public class AccountRepositoryTest {
     }
 
     @Test
+    void shouldExistByAccountNumber() {
+        accountRepository.save(sampleAccount);
+        boolean found = accountRepository.existsByAccountNumber("ACC123456789");
+        assertThat(found).isTrue();
+    }
+
+    @Test
     void shouldUpdateBalanceAndIncrementVersion() {
         Account saved = accountRepository.save(sampleAccount);
         Long id = saved.getId();

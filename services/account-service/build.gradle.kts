@@ -31,6 +31,13 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
+tasks.withType<JavaCompile> {
+    options.compilerArgs.addAll(listOf(
+        "-Amapstruct.defaultComponentModel=spring",
+        "-Amapstruct.unmappedTargetPolicy=IGNORE"
+    ))
+}
+
 springBoot {
     mainClass = "ru.taranenkoant.banking.account.AccountServiceApplication"
 }
