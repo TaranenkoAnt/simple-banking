@@ -14,6 +14,7 @@ import ru.taranenkoant.banking.account.dto.response.AccountResponse;
 import ru.taranenkoant.banking.account.exception.InsufficientFundsException;
 import ru.taranenkoant.banking.account.mapper.AccountMapper;
 import ru.taranenkoant.banking.account.repository.AccountRepository;
+import ru.taranenkoant.banking.account.service.AccountService;
 
 import java.math.BigDecimal;
 import java.util.Optional;
@@ -50,7 +51,7 @@ class AccountServiceTest {
                 .ownerName("Test user")
                 .balance(new BigDecimal("100.00"))
                 .currency(Currency.USD)
-                .accountStatus(AccountStatus.ACTIVE)
+                .status(AccountStatus.ACTIVE)
                 .version(0)
                 .build();
 

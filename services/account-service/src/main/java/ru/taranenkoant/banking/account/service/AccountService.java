@@ -1,4 +1,4 @@
-package ru.taranenkoant.banking.account;
+package ru.taranenkoant.banking.account.service;
 
 
 import lombok.RequiredArgsConstructor;
@@ -51,7 +51,7 @@ public class AccountService {
     @Transactional
     public AccountResponse updateStatus(String accountNumber, AccountStatus newStatus) {
         Account account = findAccountByNumber(accountNumber);
-        account.setAccountStatus(newStatus);
+        account.setStatus(newStatus);
         Account updated = accountRepository.save(account);
         log.info("Account {} status changet to {}", accountNumber, newStatus);
         return accountMapper.toResponse(updated);
@@ -85,7 +85,7 @@ public class AccountService {
     }
 
     private void validateAccountActive(Account account) {
-        if (account.getAccountStatus() != AccountStatus.ACTIVE) {
+        if (account.getStatus() != AccountStatus.ACTIVE) {
             throw new AccountBlockedException(account.getAccountNumber());
         }
     }

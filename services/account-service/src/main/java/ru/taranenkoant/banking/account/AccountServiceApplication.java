@@ -1,4 +1,4 @@
-package ru.taranenkoant.banking.account.service;
+package ru.taranenkoant.banking.account;
 
 
 import org.springframework.boot.SpringApplication;

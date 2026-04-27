@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import ru.taranenkoant.banking.account.domain.AccountStatus;
 import ru.taranenkoant.banking.account.domain.Currency;
 
 import java.math.BigDecimal;
@@ -27,4 +28,5 @@ public class AccountCreateRequest {
     @DecimalMin("0.00")
     private BigDecimal initialBalance;
     @NotNull private Currency currency;
+    private AccountStatus status;
 }

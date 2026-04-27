@@ -4,7 +4,7 @@ package ru.taranenkoant.banking.account.web;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.taranenkoant.banking.account.AccountService;
+import ru.taranenkoant.banking.account.service.AccountService;
 import ru.taranenkoant.banking.account.dto.request.AccountCreateRequest;
 import ru.taranenkoant.banking.account.dto.request.AccountStatusUpdateRequest;
 import ru.taranenkoant.banking.account.dto.response.AccountResponse;

@@ -36,7 +36,7 @@ public class Account {
     private Currency currency;
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false, length = 10)
-    private AccountStatus accountStatus;
+    private AccountStatus status;
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
