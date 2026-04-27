@@ -28,5 +28,4 @@ public class AccountCreateRequest {
     @DecimalMin("0.00")
     private BigDecimal initialBalance;
     @NotNull private Currency currency;
-    private AccountStatus status;
 }

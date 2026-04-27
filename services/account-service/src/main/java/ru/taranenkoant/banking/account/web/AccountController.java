@@ -35,7 +35,7 @@ public class AccountController {
         return accountService.getAccountByNumber(accountNumber);
     }
 
-    @PatchMapping("/{accountNumber}/status")
+    @PostMapping("/{accountNumber}/status")
     public AccountResponse updateStatus(@PathVariable String accountNumber,
                                         @Valid @RequestBody AccountStatusUpdateRequest request) {
         return accountService.updateStatus(accountNumber, request.getStatus());
