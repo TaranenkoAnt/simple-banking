@@ -5,3 +5,5 @@ file("services").listFiles()?.forEach { dir ->
         include("services:${dir.name}")
     }
 }
+
+include("services:transaction-service")

@@ -19,6 +19,14 @@ allprojects {
 // subprojects применяет плагин java ко всем подмодулям, настраивает Java 17 и JUnit 5
 subprojects {
     apply(plugin = "java")
+    apply(plugin = "io.spring.dependency-management")
+
+//    dependencyManagement {
+//        imports {
+//            mavenBom("org.springframework.cloud:spring-cloud-dependencies:${libs.versions.spring.cloud.get()}}")
+//        }
+//    }
+
     java {
         toolchain {
             languageVersion = JavaLanguageVersion.of(17)
