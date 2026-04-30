@@ -12,6 +12,46 @@ services:
        - "5432:5432"
      volumes:
        - postgres-account-data:/var/lib/postgresql/data
+     healthcheck:
+       test: ["CMD-SHELL", "pg_isready -U banking_user -d acoount_db"]
+       interval: 10s
+       timeout: 5s
+       retries: 5
+
+   postgres-transaction:
+     image: postgres:16-alpine
+     container_name: banking-postgres-transaction
+     environment:
+        POSTGRES_DB: transaction_db
+        POSTGRES_USER: banking_user
+        POSTGRES_PASSWORD: banking_pass
+     ports:
+       - "5433:5432"
+     volumes:
+       - postgres-transaction-data:/var/lib/postgresql/data
+     healthcheck:
+       test: ["CMD-SHELL", "pg_isready -U banking_user -d transaction_db"]
+       interval: 10s
+       timeout: 5s
+       retries: 5
+
+
+   account-service:
+     build:
+       context: ../
+       dockerfile: services/account-service/Dockerfile
+     container_name: banking-account-service
+     ports:
+       - "8081:8081"
+     environment:
+       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-account:5432/account_db
+       SPRING_DATASOURCE_USERNAME: banking_user
+       SPRING_DATASOURCE_PASSWORD: banking_pass
+     depends_on:
+       postgres-account:
+         condition: service_healthy
+     restart: on-failure
 
 volumes:
    postgres-account-data:
+   postgres-transaction-data:
