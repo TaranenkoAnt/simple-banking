@@ -41,8 +41,8 @@ resilience4j:
         failureRateThreshold: 50
         waitDurationInOpenState: 10s
         permittedNumberOfCallsInHalfOpenState: 3
-retry:
-  instances:
-    accountService:
-      maxAttempts: 3
-      waitDuration: 1s
+  retry:
+    instances:
+      accountService:
+        maxAttempts: 3
+        waitDuration: 1s

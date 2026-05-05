@@ -59,4 +59,9 @@ public class AccountClient {
                 .retrieve()
                 .toBodilessEntity();
     }
+
+    public AccountResponse fallbackGetAccount(String accountNumber, Throwable t) {
+        log.error("Failed to get account {}, reason: {}", accountNumber, t.getMessage());
+        throw new RuntimeException("Account service unavailable");
+    }
 }
